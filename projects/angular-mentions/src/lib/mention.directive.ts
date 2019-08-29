@@ -187,7 +187,10 @@ export class MentionDirective implements OnChanges {
       setCaretPosition(this.startNode, pos, this.iframe);
     }
     //console.log("keyHandler", this.startPos, pos, val, charPressed, event);
-
+    if (charPressed == 2 && event.altKey && event.ctrlKey) {
+      charPressed = "@";
+    }
+    
     let config = this.triggerChars[charPressed];
     if (config) {
       this.activeConfig = config;
